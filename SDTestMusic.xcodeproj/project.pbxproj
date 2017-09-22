@@ -112,11 +112,20 @@
 			name = "Custom Views";
 			sourceTree = "<group>";
 		};
-		4C2B238B1D8A077800E07ED7 = {
+		32C6E4461F74C65F00F76D55 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				318C24A01D8CA55C00543E6B /* AVFoundation.framework */,
+			);
+			name = Frameworks;
+			path = SDTestMusic;
+			sourceTree = "<group>";
+		};
+		4C2B238B1D8A077800E07ED7 = {
+			isa = PBXGroup;
+			children = (
 				4C2B23961D8A077800E07ED7 /* SDTestMusic */,
+				32C6E4461F74C65F00F76D55 /* Frameworks */,
 				4C2B23AB1D8A077800E07ED7 /* SDTestMusicTests */,
 				4C2B23951D8A077800E07ED7 /* Products */,
 			);
