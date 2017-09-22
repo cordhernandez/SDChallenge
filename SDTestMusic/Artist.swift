@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class Artist {
+    
     var name: String?
     var ID: String?
     var followers: Int? = 0

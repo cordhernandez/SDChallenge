@@ -10,12 +10,12 @@
 		318C248F1D8B428E00543E6B /* ArtistSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318C248E1D8B428E00543E6B /* ArtistSearchTableViewController.swift */; };
 		318C24921D8B4E4700543E6B /* ArtistListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318C24911D8B4E4700543E6B /* ArtistListTableViewCell.swift */; };
 		318C24941D8B4E5500543E6B /* ArtistListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 318C24931D8B4E5500543E6B /* ArtistListTableViewCell.xib */; };
-		318C24961D8B58F800543E6B /* TrackListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318C24951D8B58F800543E6B /* TrackListTableViewController.swift */; };
 		318C24981D8B5B9400543E6B /* TrackListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318C24971D8B5B9400543E6B /* TrackListTableViewCell.swift */; };
 		318C249A1D8B5BA500543E6B /* TrackListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 318C24991D8B5BA500543E6B /* TrackListTableViewCell.xib */; };
 		318C249D1D8C651A00543E6B /* TrackDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 318C249C1D8C651A00543E6B /* TrackDetailView.xib */; };
 		318C249F1D8C929E00543E6B /* TrackDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318C249E1D8C929E00543E6B /* TrackDetailView.swift */; };
 		318C24A11D8CA55C00543E6B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 318C24A01D8CA55C00543E6B /* AVFoundation.framework */; };
+		32C6E4451F74C39300F76D55 /* TrackListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C6E4441F74C39300F76D55 /* TrackListTableViewController.swift */; };
 		4C2B23981D8A077800E07ED7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2B23971D8A077800E07ED7 /* AppDelegate.swift */; };
 		4C2B239D1D8A077800E07ED7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C2B239B1D8A077800E07ED7 /* Main.storyboard */; };
 		4C2B239F1D8A077800E07ED7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C2B239E1D8A077800E07ED7 /* Assets.xcassets */; };
@@ -42,12 +42,12 @@
 		318C248E1D8B428E00543E6B /* ArtistSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistSearchTableViewController.swift; sourceTree = "<group>"; };
 		318C24911D8B4E4700543E6B /* ArtistListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistListTableViewCell.swift; sourceTree = "<group>"; };
 		318C24931D8B4E5500543E6B /* ArtistListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArtistListTableViewCell.xib; sourceTree = "<group>"; };
-		318C24951D8B58F800543E6B /* TrackListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackListTableViewController.swift; sourceTree = "<group>"; };
 		318C24971D8B5B9400543E6B /* TrackListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackListTableViewCell.swift; sourceTree = "<group>"; };
 		318C24991D8B5BA500543E6B /* TrackListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrackListTableViewCell.xib; sourceTree = "<group>"; };
 		318C249C1D8C651A00543E6B /* TrackDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrackDetailView.xib; sourceTree = "<group>"; };
 		318C249E1D8C929E00543E6B /* TrackDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackDetailView.swift; sourceTree = "<group>"; };
 		318C24A01D8CA55C00543E6B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		32C6E4441F74C39300F76D55 /* TrackListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackListTableViewController.swift; sourceTree = "<group>"; };
 		4C2B23941D8A077800E07ED7 /* SDTestMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SDTestMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C2B23971D8A077800E07ED7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C2B239C1D8A077800E07ED7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -87,7 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				318C248E1D8B428E00543E6B /* ArtistSearchTableViewController.swift */,
-				318C24951D8B58F800543E6B /* TrackListTableViewController.swift */,
+				32C6E4441F74C39300F76D55 /* TrackListTableViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -282,9 +282,9 @@
 				318C24981D8B5B9400543E6B /* TrackListTableViewCell.swift in Sources */,
 				4C2B23B91D8A08CB00E07ED7 /* Artist.swift in Sources */,
 				D79B8FB11F2183D6004B0212 /* SpotifyAuth.swift in Sources */,
+				32C6E4451F74C39300F76D55 /* TrackListTableViewController.swift in Sources */,
 				D79B8FB51F218535004B0212 /* Extensions.swift in Sources */,
 				4C2B23981D8A077800E07ED7 /* AppDelegate.swift in Sources */,
-				318C24961D8B58F800543E6B /* TrackListTableViewController.swift in Sources */,
 				4C2B23BB1D8A08EC00E07ED7 /* Track.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
