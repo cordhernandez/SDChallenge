@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,22 +16,29 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XRW-Si-u4O" id="LGe-x0-2Qc">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="65.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BYy-Zo-gBw">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BYy-Zo-gBw">
                         <rect key="frame" x="3" y="3" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="Bl3-qD-2Mb"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="teU-9K-xo9">
-                        <rect key="frame" x="71" y="23" width="241" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="teU-9K-xo9">
+                        <rect key="frame" x="71" y="23" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="teU-9K-xo9" firstAttribute="leading" secondItem="BYy-Zo-gBw" secondAttribute="trailing" constant="8" symbolic="YES" id="5jO-gh-EYt"/>
+                    <constraint firstItem="BYy-Zo-gBw" firstAttribute="leading" secondItem="LGe-x0-2Qc" secondAttribute="leadingMargin" constant="-5" id="BDE-Lz-7KI"/>
+                    <constraint firstItem="BYy-Zo-gBw" firstAttribute="top" secondItem="LGe-x0-2Qc" secondAttribute="topMargin" constant="-5" id="NCf-IW-yGi"/>
+                    <constraint firstItem="BYy-Zo-gBw" firstAttribute="centerY" secondItem="LGe-x0-2Qc" secondAttribute="centerY" id="R91-GP-OEp"/>
                     <constraint firstItem="BYy-Zo-gBw" firstAttribute="top" secondItem="LGe-x0-2Qc" secondAttribute="top" constant="3" id="lZj-Qf-zsg"/>
+                    <constraint firstItem="BYy-Zo-gBw" firstAttribute="centerY" secondItem="teU-9K-xo9" secondAttribute="centerY" id="tkI-mj-WNd"/>
                     <constraint firstAttribute="bottom" secondItem="BYy-Zo-gBw" secondAttribute="bottom" constant="3" id="yEq-nd-dAe"/>
                 </constraints>
                 <variation key="default">
