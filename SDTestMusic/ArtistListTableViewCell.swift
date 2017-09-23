@@ -30,7 +30,9 @@ class ArtistListTableViewCell: UITableViewCell {
 }
 
 extension ArtistListTableViewCell {
+    
     func configureCellWithArtist(_ artist: Artist) {
+        
         artistNameLabel.text = artist.name
         artist.thumbnailImage { (image) in
             self.artistImageView.image = image

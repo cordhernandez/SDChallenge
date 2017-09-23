@@ -18,12 +18,14 @@ class Artist {
     var imageUrls: [ArtistImage] = []
     
     struct ArtistImage {
+        
         var height: Int? = 0
         var width: Int? = 0
         var url: URL?
     }
     
     init(dictionary: [String : Any]) {
+        
         name = dictionary["name"] as? String
         ID = dictionary["id"] as? String
         popularity = dictionary["popularity"] as? Int
@@ -36,7 +38,9 @@ class Artist {
     }
     
     func thumbnailImage(_ completion: @escaping (_ image: UIImage?) -> Void) {
+        
         DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.high).async(execute: {
+            
             var image = UIImage(named: "musicImage")
             
             if !self.imageUrls.isEmpty {
@@ -56,11 +60,15 @@ class Artist {
     }
     
     class func getArtistsWithArray(_ array: [[String : Any]]) -> [Artist] {
+        
         var tmpArray = [Artist]()
+        
         for artist in array {
+            
             let tmpArtist = Artist(dictionary: artist)
             tmpArray.append(tmpArtist)
         }
+        
         return tmpArray
     }
 }

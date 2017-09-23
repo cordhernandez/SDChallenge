@@ -10,11 +10,11 @@ import Foundation
 import UIKit
 
 class ArtistSearchTableViewController: UITableViewController {
+    
     let kArtistListToTrackListSegue = "artistListToTrackListSegue"
     
     var searchController: UISearchController?
     var searchResultsArray = [Artist]()
-    
     var currentArtist: Artist?
     
     override func viewDidLoad() {
@@ -30,6 +30,7 @@ class ArtistSearchTableViewController: UITableViewController {
 extension ArtistSearchTableViewController {
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if let trackListTableViewController = segue.destination as? TrackListTableViewController {
             trackListTableViewController.currentArtist = currentArtist
         }
@@ -37,20 +38,28 @@ extension ArtistSearchTableViewController {
     
     // MARK: - Table View Data Source
     override func numberOfSections(in tableView: UITableView) -> Int {
+        
         return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return searchResultsArray.count
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
         return ArtistListTableViewCell.cellHeight()
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ArtistListTableViewCell.cellIdentifier(), for: indexPath) as! ArtistListTableViewCell
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ArtistListTableViewCell.cellIdentifier(), for: indexPath) as? ArtistListTableViewCell else {
+            return UITableViewCell()
+        }
+        
         if !searchResultsArray.isEmpty {
+            
             let artist = searchResultsArray[indexPath.row]
             cell.configureCellWithArtist(artist)
         }
@@ -60,6 +69,7 @@ extension ArtistSearchTableViewController {
     
     // MARK: - Table View Delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         self.currentArtist = searchResultsArray[indexPath.row]
         self.performSegue(withIdentifier: kArtistListToTrackListSegue, sender: self)
     }
@@ -67,26 +77,33 @@ extension ArtistSearchTableViewController {
 
 // MARK: - Search Bar Delegate
 extension ArtistSearchTableViewController: UISearchBarDelegate {
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
         self.searchResultsArray.removeAll()
         self.tableView.reloadData()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
         self.searchResultsArray.removeAll()
         self.tableView.reloadData()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
         searchQuery(searchBar.text!)
     }
 }
 
 // MARK: - Private Methods
 private extension ArtistSearchTableViewController {
+    
     func searchQuery(_ searchString: String) {
+        
         self.searchResultsArray.removeAll()
         self.tableView.reloadData()
+        
         APIServiceManager.sharedManager.fetchArtist(searchString, completion: { (artists) in
             self.searchResultsArray = artists
             self.tableView.reloadData()
@@ -96,6 +113,7 @@ private extension ArtistSearchTableViewController {
     }
     
     func setupSearchBar() {
+        
         self.searchController = UISearchController(searchResultsController: nil)
         self.searchController?.dimsBackgroundDuringPresentation = false
         self.searchController?.searchBar.delegate = self

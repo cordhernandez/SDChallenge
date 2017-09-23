@@ -11,6 +11,7 @@ import UIKit
 import AVFoundation
 
 class TrackDetailView: UIView {
+    
     @IBOutlet var shadowView: UIView!
     @IBOutlet var artistNameLabel: UILabel!
     @IBOutlet var trackImageView: UIImageView!
@@ -54,9 +55,13 @@ extension TrackDetailView: AVAudioPlayerDelegate {
     }
     
     func downloadTrack(_ track: Track, completion: @escaping () -> Void, failure failureBlock: @escaping (_ error: NSError) -> Void) {
+        
         DispatchQueue(label: "getTrack", attributes: []).async {
+            
             if let url = track.previewUrl {
+                
                 if let data = try? Data(contentsOf: url as URL) {
+                    
                     do {
                         self.audioPlayer = try AVAudioPlayer(data: data)
                         DispatchQueue.main.async(execute: {
@@ -72,7 +77,9 @@ extension TrackDetailView: AVAudioPlayerDelegate {
     }
     
     func setupViewWithTrack(_ track: Track) {
+        
         downloadTrack(track, completion: {
+            
             self.audioToolbar.isHidden = false
             self.audioPlayer?.delegate = self
             self.audioPlayer?.numberOfLoops = 0
@@ -93,8 +100,12 @@ extension TrackDetailView: AVAudioPlayerDelegate {
     }
     
     func updateProgressBar() {
+        
         DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.high).async {
-            let currentProgress = self.audioPlayer!.currentTime / self.audioPlayer!.duration
+            
+            guard let audioPlayer = self.audioPlayer else { return }
+            
+            let currentProgress = audioPlayer.currentTime / audioPlayer.duration
         
             self.progressBar.progress = Float(currentProgress)
         }
@@ -102,12 +113,14 @@ extension TrackDetailView: AVAudioPlayerDelegate {
     
     // Actions
     @IBAction func playTrackButtonClicked(_ sender: UIBarButtonItem) {
+        
         self.audioPlayer?.play()
         self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(TrackDetailView.updateProgressBar), userInfo: nil, repeats: true)
         self.timer.fire()
     }
     
     @IBAction func pauseTrackButtonClicked(_ sender: UIBarButtonItem) {
+        
         self.audioPlayer?.pause()
         self.timer.invalidate()
     }

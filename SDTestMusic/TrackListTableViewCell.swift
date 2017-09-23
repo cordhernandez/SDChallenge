@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class TrackListTableViewCell: UITableViewCell {
+    
     @IBOutlet var trackImageView: UIImageView!
     @IBOutlet var trackNameLabel: UILabel!
     @IBOutlet var trackDurationLabel: UILabel!
@@ -35,9 +36,12 @@ class TrackListTableViewCell: UITableViewCell {
 }
 
 extension TrackListTableViewCell {
+    
     func configureCellWithTrack(_ track: Track) {
+        
         trackNameLabel.text = track.name
         trackDurationLabel.text = track.formattedDuration()
+        
         track.thumbnailImage { (image) in
             self.trackImageView.image = image
         }

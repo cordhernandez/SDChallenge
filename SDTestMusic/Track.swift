@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class Track {
+    
     var name: String?
     var album: String?
     var artistName: String?
@@ -20,15 +21,17 @@ class Track {
     var imageUrls: [TrackImage] = []
     
     struct TrackImage {
+        
         var height: Int? = 0
         var width: Int? = 0
         var url: URL?
     }
     
     init(dictionary: [String : Any]) {
-        name = ""
-        album = ""
-        artistName = ""
+        
+        name = dictionary["name"] as? String
+        album = dictionary["album_type"] as? String
+        artistName = dictionary[""] as? String
         duration = 0
         popularity = 0
         trackNumber = 0
@@ -37,10 +40,13 @@ class Track {
     }
 }
 
+// Instance Methods
 extension Track {
-    // Instance Methos
+    
     func formattedDuration() -> String {
+        
         if let duration = self.duration {
+            
             let hours = ((duration / (1000 * 60 * 60)) % 24)
             let minutes = ((duration / (1000 * 60)) % 60)
             let seconds = ((duration / 1000) % 60)
@@ -56,7 +62,9 @@ extension Track {
     }
     
     func thumbnailImage(_ completion: @escaping (_ image: UIImage?) -> Void) {
+        
         DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.high).async(execute: {
+            
             var image = UIImage(named: "musicImage")
             
             if !self.imageUrls.isEmpty {
@@ -77,20 +85,28 @@ extension Track {
     
     // Class Methods
     class func getTracksWithArray(_ array: [[String : Any]]) -> [Track] {
+        
         var tmpArray = [Track]()
+        
         for track in array {
+            
             let tmpTrack = Track(dictionary: track)
             tmpArray.append(tmpTrack)
         }
+        
         return tmpArray
     }
     
     class func sortTracksWithArray(_ array: [Track]) -> [String : Any] {
-        var sortedTrackDictionary = [String: [Track]]()
+        
+        var sortedTrackDictionary = [String : [Track]]()
         
         for (_, item) in array.enumerated() {
+            
             let key = item.album!
+            
             if sortedTrackDictionary[key] == nil {
+                
                 sortedTrackDictionary[key] = [Track]()
             }
             
