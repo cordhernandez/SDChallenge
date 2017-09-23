@@ -70,7 +70,10 @@ extension TrackListTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: TrackListTableViewCell.cellIdentifier(), for: indexPath) as! TrackListTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TrackListTableViewCell.cellIdentifier(), for: indexPath) as? TrackListTableViewCell else {
+            return UITableViewCell()
+        }
+        
         let track = (sortedTracksDictionary[sortedAlbums[indexPath.section]] as! [Track])[indexPath.row]
         
         cell.configureCellWithTrack(track)
@@ -128,6 +131,7 @@ private extension TrackListTableViewController {
                 
             }, failure: { (error) in
                 
+                self.showAlert(title: "Error Displaying Track(s)", message: "There is an error displaying your track(s), please try again.")
             })
         }
     }

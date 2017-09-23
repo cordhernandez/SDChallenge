@@ -108,7 +108,7 @@ private extension ArtistSearchTableViewController {
             self.searchResultsArray = artists
             self.tableView.reloadData()
         }) { (error) in
-            print(error.localizedDescription)
+            self.showAlert(title: "Error Displaying Artist(s)", message: "There is an error displaying your artist(s), please try again.")
         }
     }
     

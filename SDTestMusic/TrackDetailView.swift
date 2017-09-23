@@ -49,6 +49,7 @@ class TrackDetailView: UIView {
 extension TrackDetailView: AVAudioPlayerDelegate {
     // Custom Methods
     func dismissView() {
+        
         self.trackImageView.image = nil
         self.audioPlayer?.stop()
         self.removeFromSuperview()
@@ -69,6 +70,7 @@ extension TrackDetailView: AVAudioPlayerDelegate {
                         })
                     }
                     catch let error as NSError {
+                        self.showAlertView(title: "Error Downloading Track(s)", message: "There is an error downloading your track(s), please try again")
                         failureBlock(error)
                     }
                 }
@@ -85,6 +87,7 @@ extension TrackDetailView: AVAudioPlayerDelegate {
             self.audioPlayer?.numberOfLoops = 0
             self.audioPlayer?.volume = 0.5
         }) { (error) in
+            self.showAlertView(title: "Error Displaying Track(s)", message: "There is an error displaying your track(s), please try again")
             print(error.localizedDescription)
         }
         
@@ -92,11 +95,11 @@ extension TrackDetailView: AVAudioPlayerDelegate {
             self.trackImageView.image = image
         }
         
-        artistNameLabel.text = track.artistName!.uppercased()
-        trackNameLabel.text = "Track Name: \(track.name!)"
-        trackNumberLabel.text = "Track #: \(track.trackNumber!)"
+        artistNameLabel.text = track.artistName?.name?.uppercased() ?? "Artist name is unavailable"
+        trackNameLabel.text = "Track Name: \(track.name ?? "Track name is unavailable")"
+        trackNumberLabel.text = "Track #: \(track.trackNumber ?? 0)"
         trackDurationLabel.text = "Duration: \(track.formattedDuration())"
-        trackPopularityLabel.text = "Popularity: \(track.popularity!)"
+        trackPopularityLabel.text = "Popularity: \(track.popularity ?? 0)"
     }
     
     func updateProgressBar() {
@@ -106,7 +109,7 @@ extension TrackDetailView: AVAudioPlayerDelegate {
             guard let audioPlayer = self.audioPlayer else { return }
             
             let currentProgress = audioPlayer.currentTime / audioPlayer.duration
-        
+            
             self.progressBar.progress = Float(currentProgress)
         }
     }
