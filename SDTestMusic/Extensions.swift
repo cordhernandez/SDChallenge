@@ -7,9 +7,7 @@
 
 import Foundation
 
-
 let SPOTIFY_AUTH_TOKEN_KEY = "SPOTIFY_AUTH_TOKEN_KEY"
-
 
 extension Dictionary : URLQueryParameterStringConvertible {
     /**

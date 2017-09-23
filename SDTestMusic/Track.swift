@@ -13,7 +13,7 @@ class Track {
     
     var name: String?
     var album: String?
-    var artistName: String?
+    var artistName: Artist?
     var duration: Int? = 0
     var popularity: Int? = 0
     var trackNumber: Int?
@@ -31,11 +31,11 @@ class Track {
         
         name = dictionary["name"] as? String
         album = dictionary["album_type"] as? String
-        artistName = dictionary[""] as? String
-        duration = 0
-        popularity = 0
-        trackNumber = 0
-        previewUrl = URL(string: "")
+        artistName = Artist(dictionary: dictionary["name"] as? [String: Any] ?? ["-N/A-" : (Any).self])
+        duration = dictionary["duration_ms"] as? Int
+        popularity = dictionary["popularity"] as? Int
+        trackNumber = dictionary["track_number"] as? Int
+        previewUrl = URL(string: dictionary["preview_url"] as? String ?? "-N/A-")
         imageUrls = [TrackImage]()
     }
 }
@@ -103,10 +103,11 @@ extension Track {
         
         for (_, item) in array.enumerated() {
             
-            let key = item.album!
+            guard let key = item.album else {
+                return sortedTrackDictionary
+            }
             
             if sortedTrackDictionary[key] == nil {
-                
                 sortedTrackDictionary[key] = [Track]()
             }
             
