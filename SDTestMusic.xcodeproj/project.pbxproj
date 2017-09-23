@@ -16,6 +16,7 @@
 		318C249F1D8C929E00543E6B /* TrackDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318C249E1D8C929E00543E6B /* TrackDetailView.swift */; };
 		318C24A11D8CA55C00543E6B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 318C24A01D8CA55C00543E6B /* AVFoundation.framework */; };
 		32C6E4451F74C39300F76D55 /* TrackListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C6E4441F74C39300F76D55 /* TrackListTableViewController.swift */; };
+		32C6E4491F76F9AF00F76D55 /* Alerts+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C6E4481F76F9AF00F76D55 /* Alerts+.swift */; };
 		4C2B23981D8A077800E07ED7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2B23971D8A077800E07ED7 /* AppDelegate.swift */; };
 		4C2B239D1D8A077800E07ED7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C2B239B1D8A077800E07ED7 /* Main.storyboard */; };
 		4C2B239F1D8A077800E07ED7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C2B239E1D8A077800E07ED7 /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 		318C249E1D8C929E00543E6B /* TrackDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackDetailView.swift; sourceTree = "<group>"; };
 		318C24A01D8CA55C00543E6B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		32C6E4441F74C39300F76D55 /* TrackListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackListTableViewController.swift; sourceTree = "<group>"; };
+		32C6E4481F76F9AF00F76D55 /* Alerts+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alerts+.swift"; sourceTree = "<group>"; };
 		4C2B23941D8A077800E07ED7 /* SDTestMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SDTestMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C2B23971D8A077800E07ED7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C2B239C1D8A077800E07ED7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -121,6 +123,24 @@
 			path = SDTestMusic;
 			sourceTree = "<group>";
 		};
+		32C6E4471F76F96800F76D55 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D79B8FB41F218535004B0212 /* Extensions.swift */,
+				32C6E4481F76F9AF00F76D55 /* Alerts+.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		32C6E44A1F7707AC00F76D55 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				D79B8FB01F2183D6004B0212 /* SpotifyAuth.swift */,
+				4C2B23BC1D8AE75400E07ED7 /* APIServiceManager.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
 		4C2B238B1D8A077800E07ED7 = {
 			isa = PBXGroup;
 			children = (
@@ -143,18 +163,17 @@
 		4C2B23961D8A077800E07ED7 /* SDTestMusic */ = {
 			isa = PBXGroup;
 			children = (
-				D79B8FB41F218535004B0212 /* Extensions.swift */,
-				4C2B23BC1D8AE75400E07ED7 /* APIServiceManager.swift */,
-				4C2B23971D8A077800E07ED7 /* AppDelegate.swift */,
-				4C2B239E1D8A077800E07ED7 /* Assets.xcassets */,
+				32C6E44A1F7707AC00F76D55 /* API */,
+				32C6E4471F76F96800F76D55 /* Extensions */,
 				4C2B23B71D8A08A300E07ED7 /* Custom Objects */,
 				318C249B1D8C650500543E6B /* Custom Views */,
+				318C248D1D8B422100543E6B /* View Controllers */,
+				318C24901D8B4E1B00543E6B /* TableView Cells */,
+				4C2B23971D8A077800E07ED7 /* AppDelegate.swift */,
+				4C2B239E1D8A077800E07ED7 /* Assets.xcassets */,
 				4C2B23A31D8A077800E07ED7 /* Info.plist */,
 				4C2B23A01D8A077800E07ED7 /* LaunchScreen.storyboard */,
 				4C2B239B1D8A077800E07ED7 /* Main.storyboard */,
-				D79B8FB01F2183D6004B0212 /* SpotifyAuth.swift */,
-				318C24901D8B4E1B00543E6B /* TableView Cells */,
-				318C248D1D8B422100543E6B /* View Controllers */,
 			);
 			path = SDTestMusic;
 			sourceTree = "<group>";
@@ -294,6 +313,7 @@
 				32C6E4451F74C39300F76D55 /* TrackListTableViewController.swift in Sources */,
 				D79B8FB51F218535004B0212 /* Extensions.swift in Sources */,
 				4C2B23981D8A077800E07ED7 /* AppDelegate.swift in Sources */,
+				32C6E4491F76F9AF00F76D55 /* Alerts+.swift in Sources */,
 				4C2B23BB1D8A08EC00E07ED7 /* Track.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
