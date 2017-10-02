@@ -87,7 +87,17 @@ extension ArtistSearchTableViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
-        guard let searchText = searchBar.text else { return }
+        guard let searchText = searchBar.text else {
+            
+            LOG.warn("Error with search bar text")
+            return
+        }
+        
+        if searchText.isEmpty || searchText == " " {
+            
+            showAlert(title: "Sorry Please Search for an Aritst Name", message: "Please type in an artist name")
+        }
+        
         searchQuery(searchText)
     }
 }

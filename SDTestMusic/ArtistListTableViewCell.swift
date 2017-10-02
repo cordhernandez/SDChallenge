@@ -11,6 +11,7 @@ import Kingfisher
 import UIKit
 
 class ArtistListTableViewCell: UITableViewCell {
+    
     @IBOutlet var artistImageView: UIImageView!
     @IBOutlet var artistNameLabel: UILabel!
     
