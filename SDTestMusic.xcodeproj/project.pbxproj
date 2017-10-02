@@ -22,11 +22,12 @@
 		32C6E44C1F771F6600F76D55 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C6E44B1F771F6600F76D55 /* Operation.swift */; };
 		32DEB8CB1F8220410083C0BD /* Archeota.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32DEB8CA1F8220410083C0BD /* Archeota.framework */; };
 		32DEB8CC1F8220410083C0BD /* Archeota.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 32DEB8CA1F8220410083C0BD /* Archeota.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		32DEB8D41F82E61D0083C0BD /* SDMusicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DEB8D31F82E61D0083C0BD /* SDMusicTests.swift */; };
+		32DEB8DD1F82E6570083C0BD /* APIServiceManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DEB8DC1F82E6570083C0BD /* APIServiceManagerTests.swift */; };
 		4C2B23981D8A077800E07ED7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2B23971D8A077800E07ED7 /* AppDelegate.swift */; };
 		4C2B239D1D8A077800E07ED7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C2B239B1D8A077800E07ED7 /* Main.storyboard */; };
 		4C2B239F1D8A077800E07ED7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C2B239E1D8A077800E07ED7 /* Assets.xcassets */; };
 		4C2B23A21D8A077800E07ED7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C2B23A01D8A077800E07ED7 /* LaunchScreen.storyboard */; };
-		4C2B23AD1D8A077800E07ED7 /* SDTestMusicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2B23AC1D8A077800E07ED7 /* SDTestMusicTests.swift */; };
 		4C2B23B91D8A08CB00E07ED7 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2B23B81D8A08CB00E07ED7 /* Artist.swift */; };
 		4C2B23BB1D8A08EC00E07ED7 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2B23BA1D8A08EC00E07ED7 /* Track.swift */; };
 		4C2B23BD1D8AE75400E07ED7 /* APIServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2B23BC1D8AE75400E07ED7 /* APIServiceManager.swift */; };
@@ -35,6 +36,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		32DEB8D61F82E61D0083C0BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4C2B238C1D8A077800E07ED7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4C2B23931D8A077800E07ED7;
+			remoteInfo = SDTestMusic;
+		};
 		4C2B23A91D8A077800E07ED7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4C2B238C1D8A077800E07ED7 /* Project object */;
@@ -73,6 +81,10 @@
 		32C6E4481F76F9AF00F76D55 /* Alerts+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alerts+.swift"; sourceTree = "<group>"; };
 		32C6E44B1F771F6600F76D55 /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
 		32DEB8CA1F8220410083C0BD /* Archeota.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Archeota.framework; path = ../Carthage/Build/iOS/Archeota.framework; sourceTree = "<group>"; };
+		32DEB8D11F82E61D0083C0BD /* SDMusicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SDMusicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		32DEB8D31F82E61D0083C0BD /* SDMusicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDMusicTests.swift; sourceTree = "<group>"; };
+		32DEB8D51F82E61D0083C0BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32DEB8DC1F82E6570083C0BD /* APIServiceManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceManagerTests.swift; sourceTree = "<group>"; };
 		4C2B23941D8A077800E07ED7 /* SDTestMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SDTestMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C2B23971D8A077800E07ED7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C2B239C1D8A077800E07ED7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -80,8 +92,6 @@
 		4C2B23A11D8A077800E07ED7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C2B23A31D8A077800E07ED7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C2B23A81D8A077800E07ED7 /* SDTestMusicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SDTestMusicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4C2B23AC1D8A077800E07ED7 /* SDTestMusicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDTestMusicTests.swift; sourceTree = "<group>"; };
-		4C2B23AE1D8A077800E07ED7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C2B23B81D8A08CB00E07ED7 /* Artist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		4C2B23BA1D8A08EC00E07ED7 /* Track.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		4C2B23BC1D8AE75400E07ED7 /* APIServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIServiceManager.swift; sourceTree = "<group>"; };
@@ -90,6 +100,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		32DEB8CE1F82E61D0083C0BD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4C2B23911D8A077800E07ED7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -176,12 +193,30 @@
 			name = Singletons;
 			sourceTree = "<group>";
 		};
+		32DEB8D21F82E61D0083C0BD /* SDMusicTests */ = {
+			isa = PBXGroup;
+			children = (
+				32DEB8DB1F82E63B0083C0BD /* API Tests */,
+				32DEB8D31F82E61D0083C0BD /* SDMusicTests.swift */,
+				32DEB8D51F82E61D0083C0BD /* Info.plist */,
+			);
+			path = SDMusicTests;
+			sourceTree = "<group>";
+		};
+		32DEB8DB1F82E63B0083C0BD /* API Tests */ = {
+			isa = PBXGroup;
+			children = (
+				32DEB8DC1F82E6570083C0BD /* APIServiceManagerTests.swift */,
+			);
+			path = "API Tests";
+			sourceTree = "<group>";
+		};
 		4C2B238B1D8A077800E07ED7 = {
 			isa = PBXGroup;
 			children = (
 				4C2B23961D8A077800E07ED7 /* SDTestMusic */,
+				32DEB8D21F82E61D0083C0BD /* SDMusicTests */,
 				32C6E4461F74C65F00F76D55 /* Frameworks */,
-				4C2B23AB1D8A077800E07ED7 /* SDTestMusicTests */,
 				4C2B23951D8A077800E07ED7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -191,6 +226,7 @@
 			children = (
 				4C2B23941D8A077800E07ED7 /* SDTestMusic.app */,
 				4C2B23A81D8A077800E07ED7 /* SDTestMusicTests.xctest */,
+				32DEB8D11F82E61D0083C0BD /* SDMusicTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -214,15 +250,6 @@
 			path = SDTestMusic;
 			sourceTree = "<group>";
 		};
-		4C2B23AB1D8A077800E07ED7 /* SDTestMusicTests */ = {
-			isa = PBXGroup;
-			children = (
-				4C2B23AC1D8A077800E07ED7 /* SDTestMusicTests.swift */,
-				4C2B23AE1D8A077800E07ED7 /* Info.plist */,
-			);
-			path = SDTestMusicTests;
-			sourceTree = "<group>";
-		};
 		4C2B23B71D8A08A300E07ED7 /* Custom Objects */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,6 +262,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		32DEB8D01F82E61D0083C0BD /* SDMusicTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 32DEB8D81F82E61D0083C0BD /* Build configuration list for PBXNativeTarget "SDMusicTests" */;
+			buildPhases = (
+				32DEB8CD1F82E61D0083C0BD /* Sources */,
+				32DEB8CE1F82E61D0083C0BD /* Frameworks */,
+				32DEB8CF1F82E61D0083C0BD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				32DEB8D71F82E61D0083C0BD /* PBXTargetDependency */,
+			);
+			name = SDMusicTests;
+			productName = SDMusicTests;
+			productReference = 32DEB8D11F82E61D0083C0BD /* SDMusicTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		4C2B23931D8A077800E07ED7 /* SDTestMusic */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4C2B23B11D8A077800E07ED7 /* Build configuration list for PBXNativeTarget "SDTestMusic" */;
@@ -277,10 +322,16 @@
 		4C2B238C1D8A077800E07ED7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
+				LastSwiftUpdateCheck = 0900;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = SD;
 				TargetAttributes = {
+					32DEB8D01F82E61D0083C0BD = {
+						CreatedOnToolsVersion = 9.0;
+						DevelopmentTeam = 5E82HJH2N5;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 4C2B23931D8A077800E07ED7;
+					};
 					4C2B23931D8A077800E07ED7 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 268HJM5ELZ;
@@ -308,11 +359,19 @@
 			targets = (
 				4C2B23931D8A077800E07ED7 /* SDTestMusic */,
 				4C2B23A71D8A077800E07ED7 /* SDTestMusicTests */,
+				32DEB8D01F82E61D0083C0BD /* SDMusicTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		32DEB8CF1F82E61D0083C0BD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4C2B23921D8A077800E07ED7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -336,6 +395,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		32DEB8CD1F82E61D0083C0BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32DEB8DD1F82E6570083C0BD /* APIServiceManagerTests.swift in Sources */,
+				32DEB8D41F82E61D0083C0BD /* SDMusicTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4C2B23901D8A077800E07ED7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -360,13 +428,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C2B23AD1D8A077800E07ED7 /* SDTestMusicTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		32DEB8D71F82E61D0083C0BD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4C2B23931D8A077800E07ED7 /* SDTestMusic */;
+			targetProxy = 32DEB8D61F82E61D0083C0BD /* PBXContainerItemProxy */;
+		};
 		4C2B23AA1D8A077800E07ED7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4C2B23931D8A077800E07ED7 /* SDTestMusic */;
@@ -394,6 +466,70 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		32DEB8D91F82E61D0083C0BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5E82HJH2N5;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = SDMusicTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Ored.SDMusicTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SDTestMusic.app/SDTestMusic";
+			};
+			name = Debug;
+		};
+		32DEB8DA1F82E61D0083C0BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5E82HJH2N5;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = SDMusicTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Ored.SDMusicTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SDTestMusic.app/SDTestMusic";
+			};
+			name = Release;
+		};
 		4C2B23AF1D8A077800E07ED7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -542,6 +678,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		32DEB8D81F82E61D0083C0BD /* Build configuration list for PBXNativeTarget "SDMusicTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32DEB8D91F82E61D0083C0BD /* Debug */,
+				32DEB8DA1F82E61D0083C0BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4C2B238F1D8A077800E07ED7 /* Build configuration list for PBXProject "SDTestMusic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
