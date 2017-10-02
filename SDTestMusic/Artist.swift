@@ -14,16 +14,9 @@ class Artist {
     
     var name: String?
     var ID: String?
-    var followers: Int? = 0
-    var popularity: Int? = 0
+    var followers: Int?
+    var popularity: Int?
     var imageUrls: [ArtistImage] = []
-    
-    struct ArtistImage {
-        
-        var height: Int? = 0
-        var width: Int? = 0
-        var url: URL?
-    }
     
     init(dictionary: [String : Any]) {
         
@@ -36,6 +29,13 @@ class Artist {
             let artistImage = ArtistImage(height: image["height"] as? Int, width: image["width"] as? Int, url: URL(string: image["url"] as? String ?? ""))
             imageUrls.append(artistImage)
         }
+    }
+    
+    struct ArtistImage {
+        
+        var height: Int? = 0
+        var width: Int? = 0
+        var url: URL?
     }
     
     func thumbnailImage(_ completion: @escaping (_ image: URL) -> Void) {
