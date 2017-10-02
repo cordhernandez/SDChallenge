@@ -5,6 +5,7 @@
 //  Copyright © 2017 SD. All rights reserved.
 //
 
+import Archeota
 import UIKit
 
 let SPOTIFY_CLIENT_ID = "639434934499449d804c067c83eaf53f"
@@ -27,15 +28,10 @@ class SpotifyAuth {
         UIApplication.shared.openURL(URL)
     }
     
-    
-    static func refeshToken(){
+    static func refeshToken() {
         
         guard let URL = URL(string: "https://accounts.spotify.com/api/token") else {return}
-        //        let URLParams = [
-        //            "grant_type": "authorization_code",
-        //            "code":  UserDefaults.standard.spotifyAuthToken()!,
-        //            "redirect_uri": "sdcc://authenticationcallback",
-        //            ]
+        
         let Body = [
             "grant_type": "authorization_code",
             "code":  UserDefaults.standard.spotifyAuthToken()!,
@@ -43,7 +39,7 @@ class SpotifyAuth {
             "client_secret":SPOTIFY_SECRET,
             "client_id":SPOTIFY_CLIENT_ID
         ]
-        //        URL = URL.appendingQueryParameters(URLParams)
+        
         var request = URLRequest(url: URL)
         request.httpMethod = "POST"
         
@@ -51,7 +47,7 @@ class SpotifyAuth {
             request.httpBody = try JSONSerialization.data(withJSONObject: Body, options: [])
         }
         catch let error as NSError {
-            print("Error serializing the data, error description: \(error.localizedDescription)")
+            LOG.error("Error serializing the data, error description: \(error.localizedDescription)")
         }
         
         let sessionConfig = URLSessionConfiguration.default
@@ -68,17 +64,18 @@ class SpotifyAuth {
                 }
                 
                 do {
-                    let jsonDict = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers)
+                    let _ = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers)
                     
                 }
                 catch {
-                    print("\(error)")
+                    LOG.error("Error serializing JSON Object with data, error description: \(error.localizedDescription)")
                 }
-                print("URL Session Task Succeeded: HTTP \(String(describing: statusCode))")
+                
+                LOG.info("URL Session Task Succeeded: HTTP \(statusCode ?? 0)")
             }
             else {
                 // Failure
-                print("URL Session Task Failed: %@", error!.localizedDescription)
+                LOG.error("Error URL Session Task Failed, error description: \(error?.localizedDescription ?? "can't display error")")
             }
         })
         
@@ -86,19 +83,8 @@ class SpotifyAuth {
     }
 }
 
-
 protocol URLQueryParameterStringConvertible {
     
     var queryParameters: String { get }
 }
-
-
-
-
-
-
-
-
-
-
 
