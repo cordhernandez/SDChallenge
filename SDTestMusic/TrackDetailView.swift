@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Kingfisher
 import UIKit
 import AVFoundation
 
@@ -38,7 +39,7 @@ class TrackDetailView: UIView {
         
         self.progressBar.progress = 0.0
         
-        audioToolbar.isHidden = true
+        audioToolbar.isHidden = false
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -59,22 +60,23 @@ extension TrackDetailView: AVAudioPlayerDelegate {
         
         DispatchQueue(label: "getTrack", attributes: []).async {
             
-            if let url = track.previewUrl {
+            guard let stringPreviewURL = track.previewURL else { return }
+            guard let previewURL = URL(string: stringPreviewURL) else { return }
+            
+            if let data = try? Data(contentsOf: previewURL) {
                 
-                if let data = try? Data(contentsOf: url as URL) {
-                    
-                    do {
-                        self.audioPlayer = try AVAudioPlayer(data: data)
-                        DispatchQueue.main.async(execute: {
-                            completion()
-                        })
-                    }
-                    catch let error as NSError {
-                        self.showAlertView(title: "Error Downloading Track(s)", message: "There is an error downloading your track(s), please try again")
-                        failureBlock(error)
-                    }
+                do {
+                    self.audioPlayer = try AVAudioPlayer(data: data)
+                    DispatchQueue.main.async(execute: {
+                        completion()
+                    })
+                }
+                catch let error as NSError {
+                    self.showAlertView(title: "Error Downloading Track(s)", message: "There is an error downloading your track(s), please try again")
+                    failureBlock(error)
                 }
             }
+            
         }
     }
     
@@ -91,12 +93,13 @@ extension TrackDetailView: AVAudioPlayerDelegate {
             print(error.localizedDescription)
         }
         
-        track.thumbnailImage { (image) in
-            self.trackImageView.image = image
+        track.thumbnailImage { (url) in
+            self.trackImageView.kf.setImage(with: url)
         }
         
-        artistNameLabel.text = track.artistName?.name?.uppercased() ?? "Artist name is unavailable"
-        trackNameLabel.text = "Track Name: \(track.name ?? "Track name is unavailable")"
+        //        artistNameLabel.text = track.artistName.name?.uppercased() ?? "Artist name is unavailable"
+        
+        trackNameLabel.text = "Track Name: \(track.name ?? "unavailable")"
         trackNumberLabel.text = "Track #: \(track.trackNumber ?? 0)"
         trackDurationLabel.text = "Duration: \(track.formattedDuration())"
         trackPopularityLabel.text = "Popularity: \(track.popularity ?? 0)"
@@ -104,13 +107,14 @@ extension TrackDetailView: AVAudioPlayerDelegate {
     
     func updateProgressBar() {
         
-        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.high).async {
+        Operation.instance.async.addOperation {
             
             guard let audioPlayer = self.audioPlayer else { return }
-            
             let currentProgress = audioPlayer.currentTime / audioPlayer.duration
             
-            self.progressBar.progress = Float(currentProgress)
+            Operation.instance.main.addOperation {
+                self.progressBar.progress = Float(currentProgress)
+            }
         }
     }
     
