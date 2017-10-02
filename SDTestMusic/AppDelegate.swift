@@ -6,6 +6,7 @@
 //  Copyright © 2016 SD. All rights reserved.
 //
 
+import Archeota
 import UIKit
 
 @UIApplicationMain
@@ -13,15 +14,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        LOG.level = .debug
+        LOG.enable()
         
         if !UserDefaults.standard.hasSpotifyToken {
             SpotifyAuth.requestToken()
         }
         else {
-            print("We have Spotify Token: \(UserDefaults.standard.spotifyAuthToken()!)")
-            //SpotifyRequestController.requestToken()
+            LOG.info("We have Spotify Token: \(UserDefaults.standard.spotifyAuthToken() ?? "")")
         }
         
         return true
