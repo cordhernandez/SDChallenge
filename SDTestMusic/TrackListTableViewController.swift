@@ -13,10 +13,9 @@ class TrackListTableViewController: UITableViewController {
     
     var currentArtist: Artist?
     var currentTrack: Track?
+    var trackDetailView: TrackDetailView?
     var sortedTracksDictionary = [String : [Any]]()
     var sortedAlbums = [String]()
-    
-    var trackDetailView: TrackDetailView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +23,7 @@ class TrackListTableViewController: UITableViewController {
         tableView.register(UINib(nibName: TrackListTableViewCell.cellName(), bundle: nil), forCellReuseIdentifier: TrackListTableViewCell.cellIdentifier())
         
         if let artist = currentArtist {
-            self.title = "\(artist.name!) Tracks"
+            self.title = "\(artist.name ?? "Artist name is unavailable") Tracks"
         }
         else {
             self.title = "Track"
@@ -40,7 +39,7 @@ class TrackListTableViewController: UITableViewController {
     }
 }
 
-// MARK: UITableViewDataSource
+// MARK: UITableViewDataSource and UITableViewDelegate
 extension TrackListTableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -53,42 +52,53 @@ extension TrackListTableViewController {
         return sortedTracksDictionary[sortedAlbums[section]]!.count
     }
     
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        
-        return TrackListTableViewCell.sectionHeaderHeight()
-    }
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-        return sortedAlbums[section]
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        return TrackListTableViewCell.cellHeight()
-    }
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TrackListTableViewCell.cellIdentifier(), for: indexPath) as? TrackListTableViewCell else {
             return UITableViewCell()
         }
         
-        let track = (sortedTracksDictionary[sortedAlbums[indexPath.section]] as! [Track])[indexPath.row]
+        let row = indexPath.row
+        let section = indexPath.section
+        let track = (sortedTracksDictionary[sortedAlbums[section]] as! [Track])[row]
         
         cell.configureCellWithTrack(track)
+        cell.trackNameLabel.text = track.name
+        cell.trackDurationLabel.text = track.formattedDuration()
         
         return cell
     }
     
-    // MARK: - UITableViewDelegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         self.currentTrack = (sortedTracksDictionary[sortedAlbums[indexPath.section]] as! [Track])[indexPath.row]
         displayTrackDetailView()
     }
     
-    // MARK: - Custom Methods
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return TrackListTableViewCell.cellHeight()
+    }
+}
+
+//MARK: - TableView Header Delegates
+extension TrackListTableViewController {
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        return sortedAlbums[section]
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        return TrackListTableViewCell.sectionHeaderHeight()
+    }
+    
+}
+
+// MARK: - Display Settings
+private extension TrackListTableViewController {
+    
     func displaySettings() {
         
         let alertController = UIAlertController(title: "Settings", message: nil, preferredStyle: .actionSheet)
@@ -103,6 +113,7 @@ extension TrackListTableViewController {
         
         self.present(alertController, animated: true, completion: nil)
     }
+    
 }
 
 private extension TrackListTableViewController {
@@ -110,23 +121,25 @@ private extension TrackListTableViewController {
     func displayTrackDetailView() {
         
         guard let currentTrack = currentTrack else { return }
+        guard let trackDetailView = trackDetailView else { return }
         
-        trackDetailView?.setupViewWithTrack(currentTrack)
+        trackDetailView.setupViewWithTrack(currentTrack)
         
-        self.navigationController?.view.addSubview(trackDetailView!)
-        self.navigationController?.view.bringSubview(toFront: trackDetailView!)
+        self.navigationController?.view.addSubview(trackDetailView)
+        self.navigationController?.view.bringSubview(toFront: trackDetailView)
     }
     
     func getTrackData() {
         
         if let artist = currentArtist {
             
-            APIServiceManager.sharedManager.fetchTracksWithArtistID(artist.ID!, completion: { (tracks) in
+            APIServiceManager.sharedManager.fetchTracksWithArtistID(artist.ID ?? "ID is unavailable", completion: { (tracks) in
                 
                 let sortedTrackArray = tracks.sorted(by: {return $0.name!.compare($1.name!) == ComparisonResult.orderedAscending})
                 
-                self.sortedTracksDictionary = Track.sortTracksWithArray(sortedTrackArray)["sortedTracks"] as! [String : [Track]]
-                self.sortedAlbums = Track.sortTracksWithArray(tracks)["sortedAlbums"] as! [String]
+                self.sortedTracksDictionary = Track.sortTracksWithArray(sortedTrackArray)["sortedTracks"] as? [String : [Track]] ?? ["" : [Track(dictionary: ["" : "" as Any]) as Any]]
+                self.sortedAlbums = Track.sortTracksWithArray(tracks)["sortedAlbums"] as? [String] ?? [""]
+                
                 self.tableView.reloadData()
                 
             }, failure: { (error) in
