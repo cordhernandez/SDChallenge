@@ -9,198 +9,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SDTestMusic/APIServiceManager.swift"
-            timestampString = "528619722.670371"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
-            landmarkName = "fetchTracksWithArtistID(_:completion:failure:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SDTestMusic/APIServiceManager.swift"
-            timestampString = "528619722.670453"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
-            landmarkName = "fetchTracksWithArtistID(_:completion:failure:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__ObjC.URLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 () -&gt; () in SDTestMusic.APIServiceManager.fetchTracksWithArtistID(Swift.String, completion: (Swift.Array&lt;SDTestMusic.Track&gt;) -&gt; (), failure: (__ObjC.NSError) -&gt; ()) -&gt; ()"
-                  moduleName = "SDTestMusic"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Mr.Dero/Desktop/Desktop%20-%20Cordero%E2%80%99s%20MacBook%20Pro/Github%20Repositories/SDTestMusic/SDTestMusic/APIServiceManager.swift"
-                  timestampString = "528587952.069843"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "111"
-                  endingLineNumber = "111"
-                  offsetFromSymbolStart = "752">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "implicit closure #1 : @autoclosure () throws -&gt; Swift.Array&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt; in closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__ObjC.URLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 () -&gt; () in SDTestMusic.APIServiceManager.fetchTracksWithArtistID(Swift.String, completion: (Swift.Array&lt;SDTestMusic.Track&gt;) -&gt; (), failure: (__ObjC.NSError) -&gt; ()) -&gt; ()"
-                  moduleName = "SDTestMusic"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Mr.Dero/Desktop/Desktop%20-%20Cordero%E2%80%99s%20MacBook%20Pro/Github%20Repositories/SDTestMusic/SDTestMusic/APIServiceManager.swift"
-                  timestampString = "528587952.071397"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "111"
-                  endingLineNumber = "111"
-                  offsetFromSymbolStart = "12">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SDTestMusic/APIServiceManager.swift"
-            timestampString = "528619722.670513"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "fetchTracksWithArtistID(_:completion:failure:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SDTestMusic/APIServiceManager.swift"
-            timestampString = "528619722.67057"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "fetchTracksWithArtistID(_:completion:failure:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SDTestMusic/APIServiceManager.swift"
-            timestampString = "528619722.670624"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
-            landmarkName = "fetchTracksWithArtistID(_:completion:failure:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in SDTestMusic.APIServiceManager.fetchTracksWithArtistID(Swift.String, completion: (Swift.Array&lt;SDTestMusic.Track&gt;) -&gt; (), failure: (__ObjC.NSError) -&gt; ()) -&gt; ()"
-                  moduleName = "SDTestMusic"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Mr.Dero/Desktop/Desktop%20-%20Cordero%E2%80%99s%20MacBook%20Pro/Github%20Repositories/SDTestMusic/SDTestMusic/APIServiceManager.swift"
-                  timestampString = "528587952.079422"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "88"
-                  endingLineNumber = "88"
-                  offsetFromSymbolStart = "804">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "implicit closure #1 : @autoclosure () throws -&gt; Swift.String in closure #1 () -&gt; () in SDTestMusic.APIServiceManager.fetchTracksWithArtistID(Swift.String, completion: (Swift.Array&lt;SDTestMusic.Track&gt;) -&gt; (), failure: (__ObjC.NSError) -&gt; ()) -&gt; ()"
-                  moduleName = "SDTestMusic"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Mr.Dero/Desktop/Desktop%20-%20Cordero%E2%80%99s%20MacBook%20Pro/Github%20Repositories/SDTestMusic/SDTestMusic/APIServiceManager.swift"
-                  timestampString = "528587952.080785"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "88"
-                  endingLineNumber = "88"
-                  offsetFromSymbolStart = "12">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SDTestMusic/APIServiceManager.swift"
-            timestampString = "528619722.670677"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
-            landmarkName = "fetchTracksWithArtistID(_:completion:failure:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SDTestMusic/APIServiceManager.swift"
-            timestampString = "528619722.670731"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
-            landmarkName = "fetchTracksWithArtistID(_:completion:failure:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SDTestMusic/APIServiceManager.swift"
-            timestampString = "528619722.670783"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
-            landmarkName = "fetchTracksWithArtistID(_:completion:failure:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "SDTestMusic/TrackListTableViewCell.swift"
             timestampString = "528616343.122201"
             startingColumnNumber = "9223372036854775807"
@@ -313,24 +121,8 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SDTestMusic/APIServiceManager.swift"
-            timestampString = "528619722.67293"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
-            landmarkName = "fetchTracksWithArtistID(_:completion:failure:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "SDTestMusic/Track.swift"
-            timestampString = "528619722.672996"
+            timestampString = "528626996.344525"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "70"
@@ -346,7 +138,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SDTestMusic/Track.swift"
-            timestampString = "528619722.673051"
+            timestampString = "528626996.344594"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "107"

@@ -20,6 +20,8 @@
 		32C6E4451F74C39300F76D55 /* TrackListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C6E4441F74C39300F76D55 /* TrackListTableViewController.swift */; };
 		32C6E4491F76F9AF00F76D55 /* Alerts+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C6E4481F76F9AF00F76D55 /* Alerts+.swift */; };
 		32C6E44C1F771F6600F76D55 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C6E44B1F771F6600F76D55 /* Operation.swift */; };
+		32DEB8CB1F8220410083C0BD /* Archeota.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32DEB8CA1F8220410083C0BD /* Archeota.framework */; };
+		32DEB8CC1F8220410083C0BD /* Archeota.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 32DEB8CA1F8220410083C0BD /* Archeota.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4C2B23981D8A077800E07ED7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2B23971D8A077800E07ED7 /* AppDelegate.swift */; };
 		4C2B239D1D8A077800E07ED7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C2B239B1D8A077800E07ED7 /* Main.storyboard */; };
 		4C2B239F1D8A077800E07ED7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C2B239E1D8A077800E07ED7 /* Assets.xcassets */; };
@@ -50,6 +52,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				32372D661F80A54D00BE46BD /* Kingfisher.framework in Embed Frameworks */,
+				32DEB8CC1F8220410083C0BD /* Archeota.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -69,6 +72,7 @@
 		32C6E4441F74C39300F76D55 /* TrackListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackListTableViewController.swift; sourceTree = "<group>"; };
 		32C6E4481F76F9AF00F76D55 /* Alerts+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alerts+.swift"; sourceTree = "<group>"; };
 		32C6E44B1F771F6600F76D55 /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
+		32DEB8CA1F8220410083C0BD /* Archeota.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Archeota.framework; path = ../Carthage/Build/iOS/Archeota.framework; sourceTree = "<group>"; };
 		4C2B23941D8A077800E07ED7 /* SDTestMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SDTestMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C2B23971D8A077800E07ED7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C2B239C1D8A077800E07ED7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -90,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32DEB8CB1F8220410083C0BD /* Archeota.framework in Frameworks */,
 				32372D651F80A54D00BE46BD /* Kingfisher.framework in Frameworks */,
 				318C24A11D8CA55C00543E6B /* AVFoundation.framework in Frameworks */,
 			);
@@ -137,6 +142,7 @@
 		32C6E4461F74C65F00F76D55 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				32DEB8CA1F8220410083C0BD /* Archeota.framework */,
 				32372D641F80A54C00BE46BD /* Kingfisher.framework */,
 				318C24A01D8CA55C00543E6B /* AVFoundation.framework */,
 			);
