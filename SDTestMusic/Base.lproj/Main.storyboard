@@ -12,7 +12,7 @@
         <!--Artist Search Table View Controller-->
         <scene sceneID="1QF-Mz-dBa">
             <objects>
-                <tableViewController id="WlB-Mw-hG7" customClass="ArtistSearchTableViewController" customModule="SDTestMusic" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ArtistSearchTableVC" id="WlB-Mw-hG7" customClass="ArtistSearchTableViewController" customModule="SDTestMusic" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="UPQ-fE-vOr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -46,7 +46,7 @@
         <!--Track List Table View Controller-->
         <scene sceneID="HEI-q3-cBy">
             <objects>
-                <tableViewController id="TX8-LA-XgX" customClass="TrackListTableViewController" customModule="SDTestMusic" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="TrackListTableVC" id="TX8-LA-XgX" customClass="TrackListTableViewController" customModule="SDTestMusic" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="52" sectionHeaderHeight="28" sectionFooterHeight="28" id="MIz-vf-09H">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -81,7 +81,6 @@
         <!--Navigation Controller-->
         <scene sceneID="P0W-U5-aDN">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cMa-NA-LPu" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="inF-rr-QM7" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="xCc-AD-GkV">
@@ -94,6 +93,7 @@
                         <segue destination="WlB-Mw-hG7" kind="relationship" relationship="rootViewController" id="nv2-Ge-8iZ"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cMa-NA-LPu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-149.59999999999999" y="15.742128935532236"/>
         </scene>

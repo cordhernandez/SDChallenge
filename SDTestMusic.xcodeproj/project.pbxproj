@@ -22,7 +22,6 @@
 		32C6E44C1F771F6600F76D55 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C6E44B1F771F6600F76D55 /* Operation.swift */; };
 		32DEB8CB1F8220410083C0BD /* Archeota.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32DEB8CA1F8220410083C0BD /* Archeota.framework */; };
 		32DEB8CC1F8220410083C0BD /* Archeota.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 32DEB8CA1F8220410083C0BD /* Archeota.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		32DEB8D41F82E61D0083C0BD /* SDMusicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DEB8D31F82E61D0083C0BD /* SDMusicTests.swift */; };
 		32DEB8DD1F82E6570083C0BD /* APIServiceManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DEB8DC1F82E6570083C0BD /* APIServiceManagerTests.swift */; };
 		4C2B23981D8A077800E07ED7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2B23971D8A077800E07ED7 /* AppDelegate.swift */; };
 		4C2B239D1D8A077800E07ED7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C2B239B1D8A077800E07ED7 /* Main.storyboard */; };
@@ -33,6 +32,8 @@
 		4C2B23BD1D8AE75400E07ED7 /* APIServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2B23BC1D8AE75400E07ED7 /* APIServiceManager.swift */; };
 		D79B8FB11F2183D6004B0212 /* SpotifyAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79B8FB01F2183D6004B0212 /* SpotifyAuth.swift */; };
 		D79B8FB51F218535004B0212 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79B8FB41F218535004B0212 /* Extensions.swift */; };
+		E7BA0A3E1F82EED6002F733D /* ArtistSearchTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BA0A3D1F82EED6002F733D /* ArtistSearchTableViewControllerTests.swift */; };
+		E7BA0A401F82EEE6002F733D /* TrackListTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BA0A3F1F82EEE6002F733D /* TrackListTableViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,7 +83,6 @@
 		32C6E44B1F771F6600F76D55 /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
 		32DEB8CA1F8220410083C0BD /* Archeota.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Archeota.framework; path = ../Carthage/Build/iOS/Archeota.framework; sourceTree = "<group>"; };
 		32DEB8D11F82E61D0083C0BD /* SDMusicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SDMusicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		32DEB8D31F82E61D0083C0BD /* SDMusicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDMusicTests.swift; sourceTree = "<group>"; };
 		32DEB8D51F82E61D0083C0BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32DEB8DC1F82E6570083C0BD /* APIServiceManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceManagerTests.swift; sourceTree = "<group>"; };
 		4C2B23941D8A077800E07ED7 /* SDTestMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SDTestMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,6 +97,8 @@
 		4C2B23BC1D8AE75400E07ED7 /* APIServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIServiceManager.swift; sourceTree = "<group>"; };
 		D79B8FB01F2183D6004B0212 /* SpotifyAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotifyAuth.swift; sourceTree = "<group>"; };
 		D79B8FB41F218535004B0212 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E7BA0A3D1F82EED6002F733D /* ArtistSearchTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistSearchTableViewControllerTests.swift; sourceTree = "<group>"; };
+		E7BA0A3F1F82EEE6002F733D /* TrackListTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackListTableViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,8 +198,8 @@
 		32DEB8D21F82E61D0083C0BD /* SDMusicTests */ = {
 			isa = PBXGroup;
 			children = (
+				E7BA0A3C1F82EEBF002F733D /* ViewControllersTests */,
 				32DEB8DB1F82E63B0083C0BD /* API Tests */,
-				32DEB8D31F82E61D0083C0BD /* SDMusicTests.swift */,
 				32DEB8D51F82E61D0083C0BD /* Info.plist */,
 			);
 			path = SDMusicTests;
@@ -257,6 +259,15 @@
 				4C2B23BA1D8A08EC00E07ED7 /* Track.swift */,
 			);
 			name = "Custom Objects";
+			sourceTree = "<group>";
+		};
+		E7BA0A3C1F82EEBF002F733D /* ViewControllersTests */ = {
+			isa = PBXGroup;
+			children = (
+				E7BA0A3D1F82EED6002F733D /* ArtistSearchTableViewControllerTests.swift */,
+				E7BA0A3F1F82EEE6002F733D /* TrackListTableViewControllerTests.swift */,
+			);
+			path = ViewControllersTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -399,8 +410,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7BA0A3E1F82EED6002F733D /* ArtistSearchTableViewControllerTests.swift in Sources */,
+				E7BA0A401F82EEE6002F733D /* TrackListTableViewControllerTests.swift in Sources */,
 				32DEB8DD1F82E6570083C0BD /* APIServiceManagerTests.swift in Sources */,
-				32DEB8D41F82E61D0083C0BD /* SDMusicTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

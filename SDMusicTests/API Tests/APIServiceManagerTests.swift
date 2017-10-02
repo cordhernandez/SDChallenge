@@ -17,7 +17,7 @@ class APIServiceManagerTests: XCTestCase {
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        
         super.tearDown()
     }
     
@@ -43,7 +43,7 @@ class APIServiceManagerTests: XCTestCase {
     
     func testFetchTracksWithArtistID() {
         
-        let artistName = "Bruno"
+        let artistName = "Radiohead"
         let promise = expectation(description: "Completion will be called")
         
         let testFailure: (_ error: NSError) -> Void = { failure in
@@ -58,6 +58,6 @@ class APIServiceManagerTests: XCTestCase {
         }
         
         APIServiceManager.sharedManager.fetchTracksWithArtistID(artistName, completion: testCompletion, failure: testFailure)
+        waitForExpectations(timeout: 3.0, handler: nil)
     }
-    
 }
