@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Kingfisher
 import UIKit
 
 class TrackListTableViewCell: UITableViewCell {
@@ -39,11 +40,13 @@ extension TrackListTableViewCell {
     
     func configureCellWithTrack(_ track: Track) {
         
-        trackNameLabel.text = track.name
-        trackDurationLabel.text = track.formattedDuration()
-        
-        track.thumbnailImage { (image) in
-            self.trackImageView.image = image
+        track.thumbnailImage { (url) in
+            
+            let fade = KingfisherOptionsInfoItem.transition(.fade(0.8))
+            let scale = KingfisherOptionsInfoItem.scaleFactor(UIScreen.main.scale * 2)
+            let options: KingfisherOptionsInfo = [fade, scale]
+            
+            self.trackImageView.kf.setImage(with: url, placeholder: nil, options: options, progressBlock: nil, completionHandler: nil)
         }
-    }
+    } 
 }
