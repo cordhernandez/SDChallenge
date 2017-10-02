@@ -27,9 +27,9 @@ class Track {
         popularity = dictionary["popularity"] as? Int
         trackNumber = dictionary["track_number"] as? Int
         previewURL = dictionary["preview_url"] as? String
-        album = Album(from: (dictionary["album"] as? NSDictionary)!)
+        album = Album(from: (dictionary["album"] as? NSDictionary ?? [:]))
         
-        for artist in dictionary["artists"] as! [[String : Any]] {
+        for artist in dictionary["artists"] as? [[String : Any]] ?? [["" : (Any).self]]{
             
             let artist = Artists(artistName: artist["name"] as? String,
                                  type: artist["type"] as? String, id: artist["id"] as? String)
@@ -54,7 +54,7 @@ struct Album {
         id = albumDictionary["id"] as? String
         name = albumDictionary["name"] as? String
         
-        for image in albumDictionary["images"] as! [[String : Any]] {
+        for image in albumDictionary["images"] as? [[String : Any]] ?? [["" : (Any).self]] {
             
             let theImages = TrackImage(height: image["height"] as? Int,
                                        width: image["width"] as? Int,
