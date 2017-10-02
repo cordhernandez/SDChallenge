@@ -6,6 +6,7 @@
 //  Copyright © 2016 SD. All rights reserved.
 //
 
+import Archeota
 import Foundation
 import Kingfisher
 import UIKit
@@ -30,25 +31,17 @@ class TrackDetailView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        let xibView: UIView = Bundle.main.loadNibNamed("TrackDetailView", owner: self, options: nil)![0] as! UIView
-        xibView.frame = frame
-        self.addSubview(xibView)
-        
-        let gestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(TrackDetailView.dismissView))
-        self.shadowView.addGestureRecognizer(gestureRecognizer)
+        configureXibView()
+        configureGestureRecognizer()
         
         self.progressBar.progress = 0.0
-        
         audioToolbar.isHidden = false
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
-
-extension TrackDetailView: AVAudioPlayerDelegate {
-    // Custom Methods
+    
     func dismissView() {
         
         self.trackImageView.image = nil
@@ -56,7 +49,48 @@ extension TrackDetailView: AVAudioPlayerDelegate {
         self.removeFromSuperview()
     }
     
-    func downloadTrack(_ track: Track, completion: @escaping () -> Void, failure failureBlock: @escaping (_ error: NSError) -> Void) {
+    fileprivate func configureXibView() {
+        
+        let xibView: UIView = Bundle.main.loadNibNamed("TrackDetailView", owner: self, options: nil)![0] as! UIView
+        xibView.frame = frame
+        self.addSubview(xibView)
+    }
+    
+    fileprivate func configureGestureRecognizer() {
+        
+        let gestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(TrackDetailView.dismissView))
+        self.shadowView.addGestureRecognizer(gestureRecognizer)
+    }
+}
+
+//MARK: - Download Tracks
+extension TrackDetailView: AVAudioPlayerDelegate {
+    
+    func setupViewWithTrack(_ track: Track) {
+        
+        downloadTrack(track, completion: {
+            
+            self.audioToolbar.isHidden = false
+            self.audioPlayer?.delegate = self
+            self.audioPlayer?.numberOfLoops = 0
+            self.audioPlayer?.volume = 0.5
+        }) { (error) in
+            
+            self.showAlertView(title: "Error Displaying Track(s)", message: "There is an error displaying your track(s), please try again")
+            LOG.error("Error downloading and displaying tracks, error description: \(error.localizedDescription)")
+        }
+        
+        track.thumbnailImage { (url) in
+            self.trackImageView.kf.setImage(with: url)
+        }
+        
+        trackNameLabel.text = "Track Name: \(track.name ?? "unavailable")"
+        trackNumberLabel.text = "Track #: \(track.trackNumber ?? 0)"
+        trackDurationLabel.text = "Duration: \(track.formattedDuration())"
+        trackPopularityLabel.text = "Popularity: \(track.popularity ?? 0)"
+    }
+    
+    fileprivate func downloadTrack(_ track: Track, completion: @escaping () -> Void, failure failureBlock: @escaping (_ error: NSError) -> Void) {
         
         DispatchQueue(label: "getTrack", attributes: []).async {
             
@@ -72,44 +106,28 @@ extension TrackDetailView: AVAudioPlayerDelegate {
                     })
                 }
                 catch let error as NSError {
-                    self.showAlertView(title: "Error Downloading Track(s)", message: "There is an error downloading your track(s), please try again")
                     failureBlock(error)
+                    self.showAlertView(title: "Error Downloading Track(s)", message: "There is an error downloading your track(s), please try again")
+                    LOG.error("Error Downloading Tracks, error description: \(error.localizedDescription)")
                 }
             }
-            
         }
     }
+}
+
+//MARK: - Progress Bar and IBActions
+extension TrackDetailView {
     
-    func setupViewWithTrack(_ track: Track) {
-        
-        downloadTrack(track, completion: {
-            
-            self.audioToolbar.isHidden = false
-            self.audioPlayer?.delegate = self
-            self.audioPlayer?.numberOfLoops = 0
-            self.audioPlayer?.volume = 0.5
-        }) { (error) in
-            self.showAlertView(title: "Error Displaying Track(s)", message: "There is an error displaying your track(s), please try again")
-            print(error.localizedDescription)
-        }
-        
-        track.thumbnailImage { (url) in
-            self.trackImageView.kf.setImage(with: url)
-        }
-        
-        //        artistNameLabel.text = track.artistName.name?.uppercased() ?? "Artist name is unavailable"
-        
-        trackNameLabel.text = "Track Name: \(track.name ?? "unavailable")"
-        trackNumberLabel.text = "Track #: \(track.trackNumber ?? 0)"
-        trackDurationLabel.text = "Duration: \(track.formattedDuration())"
-        trackPopularityLabel.text = "Popularity: \(track.popularity ?? 0)"
-    }
-    
-    func updateProgressBar() {
+    @objc fileprivate func updateProgressBar() {
         
         Operation.instance.async.addOperation {
             
-            guard let audioPlayer = self.audioPlayer else { return }
+            guard let audioPlayer = self.audioPlayer else {
+                
+                LOG.warn("Error with Audio Player")
+                return
+            }
+            
             let currentProgress = audioPlayer.currentTime / audioPlayer.duration
             
             Operation.instance.main.addOperation {
@@ -117,8 +135,11 @@ extension TrackDetailView: AVAudioPlayerDelegate {
             }
         }
     }
+}
+
+//MARK - IBActions
+extension TrackDetailView {
     
-    // Actions
     @IBAction func playTrackButtonClicked(_ sender: UIBarButtonItem) {
         
         self.audioPlayer?.play()
@@ -131,6 +152,5 @@ extension TrackDetailView: AVAudioPlayerDelegate {
         self.audioPlayer?.pause()
         self.timer.invalidate()
     }
-    
 }
 
