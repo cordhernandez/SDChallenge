@@ -55,6 +55,11 @@ extension ArtistSearchTableViewController {
         }
         
         let row = indexPath.row
+        guard searchResultsArray.isInBounds(index: row) else {
+            LOG.warn("Received Out of Bounds Index: \(row)")
+            return cell
+        }
+        
         let artist = searchResultsArray[row]
         
         if !searchResultsArray.isEmpty {
