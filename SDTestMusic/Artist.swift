@@ -6,6 +6,7 @@
 //  Copyright © 2016 SD. All rights reserved.
 //
 
+import Archeota
 import Foundation
 import UIKit
 
@@ -41,7 +42,12 @@ class Artist {
         
         if !self.imageUrls.isEmpty {
             
-            guard let url = self.imageUrls[0].url else { return }
+            guard let url = self.imageUrls[0].url else {
+                
+                LOG.warn("Unable to get URL")
+                return
+            }
+            
             completion(url)
         }
     }
