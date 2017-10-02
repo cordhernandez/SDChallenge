@@ -11,32 +11,70 @@ import UIKit
 
 class Track {
     
+    var artistName: [Artists] = []
     var name: String?
-    var album: String?
-    var artistName: Artist?
-    var duration: Int? = 0
-    var popularity: Int? = 0
+    var album: Album
+    var duration: Int?
+    var popularity: Int?
     var trackNumber: Int?
-    var previewUrl: URL?
-    var imageUrls: [TrackImage] = []
-    
-    struct TrackImage {
-        
-        var height: Int? = 0
-        var width: Int? = 0
-        var url: URL?
-    }
+    let previewURL: String?
     
     init(dictionary: [String : Any]) {
         
         name = dictionary["name"] as? String
-        album = dictionary["album_type"] as? String
-        artistName = Artist(dictionary: dictionary["name"] as? [String: Any] ?? ["-N/A-" : (Any).self])
         duration = dictionary["duration_ms"] as? Int
         popularity = dictionary["popularity"] as? Int
         trackNumber = dictionary["track_number"] as? Int
-        previewUrl = URL(string: dictionary["preview_url"] as? String ?? "-N/A-")
-        imageUrls = [TrackImage]()
+        previewURL = dictionary["preview_url"] as? String
+        album = Album(from: (dictionary["album"] as? NSDictionary)!)
+        
+        for artist in dictionary["artists"] as! [[String : Any]] {
+            
+            let artist = Artists(artistName: artist["name"] as? String,
+                                 type: artist["type"] as? String, id: artist["id"] as? String)
+            
+            artistName.append(artist)
+        }
+    }
+}
+
+struct TrackImage {
+    
+    var height: Int?
+    var width: Int?
+    var url: String?
+}
+
+struct Artists {
+    
+    var artistName: String?
+    var type: String?
+    var id: String?
+}
+
+struct Album {
+    
+    var albumType: String?
+    var artists: Artists
+    var id: String?
+    var images: [TrackImage] = []
+    var name: String?
+    
+    init(from albumDictionary: NSDictionary) {
+        
+        albumType = albumDictionary["album_type"] as? String
+        artists = Artists(artistName: albumDictionary["name"] as? String, type: albumDictionary["type"] as? String, id: albumDictionary["id"] as? String)
+        id = albumDictionary["id"] as? String
+        name = albumDictionary["name"] as? String
+        
+        for image in albumDictionary["images"] as! [[String : Any]] {
+            
+            let theImages = TrackImage(height: image["height"] as? Int,
+                                       width: image["width"] as? Int,
+                                       url: image["url"] as? String)
+            
+            images.append(theImages)
+        }
     }
 }
 
@@ -61,39 +99,25 @@ extension Track {
         return "00:00:00"
     }
     
-    func thumbnailImage(_ completion: @escaping (_ image: UIImage?) -> Void) {
+    func thumbnailImage(_ completion: @escaping (_ image: URL) -> Void) {
         
-        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.high).async(execute: {
-            
-            var image = UIImage(named: "musicImage")
-            
-            if !self.imageUrls.isEmpty {
-                if let url = self.imageUrls[0].url {
-                    if let imageData = try? Data(contentsOf: url) {
-                        if let tmpImage = UIImage(data: imageData) {
-                            image = tmpImage
-                        }
-                    }
-                }
-            }
-            
-            DispatchQueue.main.async(execute: {
-                completion(image)
-            })
-        })
+        guard let stringURL = self.album.images[0].url else { return }
+        guard let url = URL(string: stringURL) else { return }
+        
+        completion(url)
     }
     
     // Class Methods
     class func getTracksWithArray(_ array: [[String : Any]]) -> [Track] {
         
         var tmpArray = [Track]()
-        
+
         for track in array {
-            
+
             let tmpTrack = Track(dictionary: track)
             tmpArray.append(tmpTrack)
         }
-        
+
         return tmpArray
     }
     
@@ -103,7 +127,7 @@ extension Track {
         
         for (_, item) in array.enumerated() {
             
-            guard let key = item.album else {
+            guard let key = item.album.name else {
                 return sortedTrackDictionary
             }
             
