@@ -1,46 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Gz1-Tz-ZpH" customClass="TrackListTableViewCell" customModule="SDTestMusic" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TrackListTableViewCell" id="Gz1-Tz-ZpH" customClass="TrackListTableViewCell" customModule="SDTestMusic" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="327" height="66"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Gz1-Tz-ZpH" id="haR-WQ-j11">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="65.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="327" height="65.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Iv-ut-P4f">
-                        <rect key="frame" x="3" y="3" width="60" height="60"/>
+                        <rect key="frame" x="3" y="3" width="68" height="60"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="60" id="Gol-Mg-Hcw"/>
-                            <constraint firstAttribute="width" constant="60" id="TKz-ll-Snx"/>
+                            <constraint firstAttribute="height" constant="60" id="Vgk-vw-l71"/>
+                            <constraint firstAttribute="width" constant="68" id="g0o-JH-vfF"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIw-4T-Unn">
-                        <rect key="frame" x="71" y="8" width="241" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyz-RQ-nha">
+                        <rect key="frame" x="79" y="36" width="216" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="241" id="870-Tg-00Z"/>
-                            <constraint firstAttribute="height" constant="21" id="SkH-SV-eGf"/>
+                            <constraint firstAttribute="width" constant="216" id="vT8-eF-xbA"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyz-RQ-nha">
-                        <rect key="frame" x="71" y="31" width="42" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIw-4T-Unn">
+                        <rect key="frame" x="79" y="7" width="216" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="21" id="kMz-nd-bzI"/>
-                            <constraint firstAttribute="width" constant="42" id="qSE-ZA-unK"/>
+                            <constraint firstAttribute="width" constant="216" id="c4J-hf-UmH"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -48,26 +45,24 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottomMargin" secondItem="fyz-RQ-nha" secondAttribute="bottom" constant="5.5" id="1Tz-La-Pph"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="fyz-RQ-nha" secondAttribute="trailing" constant="199" id="42S-ec-RgT"/>
-                    <constraint firstItem="3Iv-ut-P4f" firstAttribute="top" secondItem="haR-WQ-j11" secondAttribute="top" constant="3" id="CVe-QT-nig"/>
-                    <constraint firstItem="fyz-RQ-nha" firstAttribute="top" secondItem="dIw-4T-Unn" secondAttribute="bottom" constant="2" id="DeP-xL-giC"/>
-                    <constraint firstItem="dIw-4T-Unn" firstAttribute="top" secondItem="haR-WQ-j11" secondAttribute="topMargin" id="I1J-L1-jYK"/>
-                    <constraint firstItem="3Iv-ut-P4f" firstAttribute="leading" secondItem="haR-WQ-j11" secondAttribute="leading" constant="3" id="I8R-9a-Qul"/>
-                    <constraint firstAttribute="bottom" secondItem="3Iv-ut-P4f" secondAttribute="bottom" constant="2.5" id="cdN-mu-iJd"/>
-                    <constraint firstItem="fyz-RQ-nha" firstAttribute="leading" secondItem="3Iv-ut-P4f" secondAttribute="trailing" constant="8" id="eLg-b9-JpM"/>
-                    <constraint firstItem="dIw-4T-Unn" firstAttribute="trailing" secondItem="haR-WQ-j11" secondAttribute="trailingMargin" id="iUx-G4-nie"/>
-                    <constraint firstItem="fyz-RQ-nha" firstAttribute="leading" secondItem="3Iv-ut-P4f" secondAttribute="trailing" constant="8" id="pni-LO-PIK"/>
-                    <constraint firstItem="dIw-4T-Unn" firstAttribute="leading" secondItem="3Iv-ut-P4f" secondAttribute="trailing" constant="8" id="scg-uU-ysn"/>
-                    <constraint firstItem="fyz-RQ-nha" firstAttribute="top" secondItem="dIw-4T-Unn" secondAttribute="bottom" constant="2" id="xSD-ta-HsC"/>
+                    <constraint firstAttribute="trailing" secondItem="dIw-4T-Unn" secondAttribute="trailing" constant="25" id="2O3-cI-YpT"/>
+                    <constraint firstItem="fyz-RQ-nha" firstAttribute="leading" secondItem="3Iv-ut-P4f" secondAttribute="trailing" constant="8" id="3kc-PA-x1c"/>
+                    <constraint firstAttribute="bottom" secondItem="3Iv-ut-P4f" secondAttribute="bottom" constant="2.5" id="A7y-2c-prm"/>
+                    <constraint firstAttribute="bottom" secondItem="fyz-RQ-nha" secondAttribute="bottom" constant="8.5" id="DQI-Yg-0tn"/>
+                    <constraint firstItem="3Iv-ut-P4f" firstAttribute="top" secondItem="haR-WQ-j11" secondAttribute="top" constant="3" id="Xkh-nP-hJE"/>
+                    <constraint firstItem="fyz-RQ-nha" firstAttribute="top" secondItem="dIw-4T-Unn" secondAttribute="bottom" constant="8" id="YC4-Gu-UdF"/>
+                    <constraint firstItem="3Iv-ut-P4f" firstAttribute="leading" secondItem="haR-WQ-j11" secondAttribute="leading" constant="3" id="Zq9-Dp-YuW"/>
+                    <constraint firstItem="dIw-4T-Unn" firstAttribute="top" secondItem="haR-WQ-j11" secondAttribute="top" constant="7" id="dr3-d7-6Tq"/>
+                    <constraint firstAttribute="trailing" secondItem="fyz-RQ-nha" secondAttribute="trailing" constant="25" id="jvd-BU-PcL"/>
+                    <constraint firstItem="dIw-4T-Unn" firstAttribute="leading" secondItem="3Iv-ut-P4f" secondAttribute="trailing" constant="8" id="v3m-iN-md2"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="trackDurationLabel" destination="fyz-RQ-nha" id="X3W-jl-BpU"/>
-                <outlet property="trackImageView" destination="3Iv-ut-P4f" id="HbJ-GA-Oi4"/>
-                <outlet property="trackNameLabel" destination="dIw-4T-Unn" id="j83-Il-kTC"/>
+                <outlet property="trackDurationLabel" destination="fyz-RQ-nha" id="gVW-yy-uJv"/>
+                <outlet property="trackImageView" destination="3Iv-ut-P4f" id="ftm-MX-ZlU"/>
+                <outlet property="trackNameLabel" destination="dIw-4T-Unn" id="rWQ-iA-YXn"/>
             </connections>
-            <point key="canvasLocation" x="588" y="290"/>
+            <point key="canvasLocation" x="591.5" y="290"/>
         </tableViewCell>
     </objects>
 </document>
