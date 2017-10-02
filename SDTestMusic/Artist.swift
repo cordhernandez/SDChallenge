@@ -31,32 +31,19 @@ class Artist {
         popularity = dictionary["popularity"] as? Int
         followers = dictionary["followers"] as? Int
         
-        for image in dictionary["images"] as! [[String : Any]] {
-            let artistImage = ArtistImage(height: image["height"] as? Int, width: image["width"] as? Int, url: URL(string: image["url"] as! String))
+        for image in dictionary["images"] as? [[String : Any]] ?? [["" : "" as Any]] {
+            let artistImage = ArtistImage(height: image["height"] as? Int, width: image["width"] as? Int, url: URL(string: image["url"] as? String ?? ""))
             imageUrls.append(artistImage)
         }
     }
     
-    func thumbnailImage(_ completion: @escaping (_ image: UIImage?) -> Void) {
+    func thumbnailImage(_ completion: @escaping (_ image: URL) -> Void) {
         
-        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.high).async(execute: {
+        if !self.imageUrls.isEmpty {
             
-            var image = UIImage(named: "musicImage")
-            
-            if !self.imageUrls.isEmpty {
-                if let url = self.imageUrls[0].url {
-                    if let imageData = try? Data(contentsOf: url) {
-                        if let tmpImage = UIImage(data: imageData) {
-                            image = tmpImage
-                        }
-                    }
-                }
-            }
-            
-            DispatchQueue.main.async(execute: {
-                completion(image)
-            })
-        })
+            guard let url = self.imageUrls[0].url else { return }
+            completion(url)
+        }
     }
     
     class func getArtistsWithArray(_ array: [[String : Any]]) -> [Artist] {

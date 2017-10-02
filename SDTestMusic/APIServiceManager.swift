@@ -11,6 +11,7 @@ import Foundation
 class APIServiceManager {
     
     static let sharedManager = APIServiceManager()
+    private init() {}
     
     var showImages: Bool = true
     
@@ -50,10 +51,12 @@ class APIServiceManager {
                     
                     do {
                         
-                        let jsonDict = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String : Any]
-                        let artistArray = Artist.getArtistsWithArray((jsonDict["artists"] as! [String: Any])["items"] as! [[String: Any]])
+                        guard let jsonDict = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as? [String : Any] else {
+                            return
+                        }
                         
-                        print(jsonDict)
+                        let artistArray = Artist.getArtistsWithArray((jsonDict["artists"] as? [String: Any] ?? ["" : (Any).self])["items"] as? [[String: Any]] ?? [["" : (Any).self]])
+                        
                         DispatchQueue.main.async(execute: {
                             
                             completion(artistArray)
@@ -101,8 +104,11 @@ class APIServiceManager {
                     
                     do {
                         
-                        let jsonDict = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as? [String : Any]
-                        let trackArray = Track.getTracksWithArray(jsonDict?["tracks"] as! [[String : Any]])
+                        guard let jsonDict = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as? [String : Any] else {
+                            return
+                        }
+                        
+                        let trackArray = Track.getTracksWithArray(jsonDict["tracks"] as? [[String : Any]] ?? [["" : (Any).self]]) 
                         
                         DispatchQueue.main.async(execute: {
                             

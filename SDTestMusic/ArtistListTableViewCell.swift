@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Kingfisher
 import UIKit
 
 class ArtistListTableViewCell: UITableViewCell {
@@ -33,9 +34,13 @@ extension ArtistListTableViewCell {
     
     func configureCellWithArtist(_ artist: Artist) {
         
-        artistNameLabel.text = artist.name
-        artist.thumbnailImage { (image) in
-            self.artistImageView.image = image
+        artist.thumbnailImage { (url) in
+            
+            let fade = KingfisherOptionsInfoItem.transition(.fade(0.8))
+            let scale = KingfisherOptionsInfoItem.scaleFactor(UIScreen.main.scale * 2)
+            let options: KingfisherOptionsInfo = [fade, scale]
+            
+            self.artistImageView.kf.setImage(with: url, placeholder: nil, options: options, progressBlock: nil, completionHandler: nil)
         }
     }
 }
