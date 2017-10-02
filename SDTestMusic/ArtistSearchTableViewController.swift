@@ -6,24 +6,30 @@
 //  Copyright © 2016 SD. All rights reserved.
 //
 
+import Archeota
 import Foundation
 import UIKit
 
 class ArtistSearchTableViewController: UITableViewController {
     
-    let kArtistListToTrackListSegue = "artistListToTrackListSegue"
-    
     var searchController: UISearchController?
     var searchResultsArray = [Artist]()
     var currentArtist: Artist?
     
+    let kArtistListToTrackListSegue = "artistListToTrackListSegue"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(UINib(nibName: ArtistListTableViewCell.cellName(), bundle: nil), forCellReuseIdentifier: ArtistListTableViewCell.cellIdentifier())
+        registerUINib()
+        setupSearchBar()
         
         self.title = "Artists"
-        setupSearchBar()
+    }
+    
+    fileprivate func registerUINib() {
+        
+        tableView.register(UINib(nibName: ArtistListTableViewCell.cellName(), bundle: nil), forCellReuseIdentifier: ArtistListTableViewCell.cellIdentifier())
     }
 }
 
@@ -43,6 +49,8 @@ extension ArtistSearchTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ArtistListTableViewCell.cellIdentifier(), for: indexPath) as? ArtistListTableViewCell else {
+            
+            LOG.warn("Error with dequeueing Artist List Table View Cell")
             return UITableViewCell()
         }
         
@@ -112,6 +120,7 @@ private extension ArtistSearchTableViewController {
             self.tableView.reloadData()
         }) { (error) in
             self.showAlert(title: "Error Displaying Artist(s)", message: "There is an error displaying your artist(s), please try again.")
+            LOG.error("Error displaying artists, error description: \(error.localizedDescription)")
         }
     }
     
@@ -136,5 +145,4 @@ extension ArtistSearchTableViewController {
             trackListTableViewController.currentArtist = currentArtist
         }
     }
-    
 }
