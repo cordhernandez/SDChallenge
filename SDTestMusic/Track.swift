@@ -6,6 +6,7 @@
 //  Copyright © 2016 SD. All rights reserved.
 //
 
+import Archeota
 import Foundation
 import UIKit
 
@@ -38,20 +39,6 @@ class Track {
     }
 }
 
-struct TrackImage {
-    
-    var height: Int?
-    var width: Int?
-    var url: String?
-}
-
-struct Artists {
-    
-    var artistName: String?
-    var type: String?
-    var id: String?
-}
-
 struct Album {
     
     var albumType: String?
@@ -78,6 +65,20 @@ struct Album {
     }
 }
 
+struct TrackImage {
+    
+    var height: Int?
+    var width: Int?
+    var url: String?
+}
+
+struct Artists {
+    
+    var artistName: String?
+    var type: String?
+    var id: String?
+}
+
 // Instance Methods
 extension Track {
     
@@ -101,8 +102,17 @@ extension Track {
     
     func thumbnailImage(_ completion: @escaping (_ image: URL) -> Void) {
         
-        guard let stringURL = self.album.images[0].url else { return }
-        guard let url = URL(string: stringURL) else { return }
+        guard let stringURL = self.album.images[0].url else {
+            
+            LOG.warn("Unable to get string URL from album images")
+            return
+        }
+        
+        guard let url = URL(string: stringURL) else {
+            
+            LOG.warn("Unable to get URL from string URL")
+            return
+        }
         
         completion(url)
     }
@@ -111,13 +121,13 @@ extension Track {
     class func getTracksWithArray(_ array: [[String : Any]]) -> [Track] {
         
         var tmpArray = [Track]()
-
+        
         for track in array {
-
+            
             let tmpTrack = Track(dictionary: track)
             tmpArray.append(tmpTrack)
         }
-
+        
         return tmpArray
     }
     
@@ -128,6 +138,8 @@ extension Track {
         for (_, item) in array.enumerated() {
             
             guard let key = item.album.name else {
+                
+                LOG.warn("Unable to get album names")
                 return sortedTrackDictionary
             }
             
