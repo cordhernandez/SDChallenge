@@ -6,6 +6,7 @@
 //  Copyright © 2016 SD. All rights reserved.
 //
 
+import Archeota
 import Foundation
 import UIKit
 
@@ -20,7 +21,12 @@ class TrackListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(UINib(nibName: TrackListTableViewCell.cellName(), bundle: nil), forCellReuseIdentifier: TrackListTableViewCell.cellIdentifier())
+        registerUINib()
+        getTrackData()
+        setupTrackDetailView()
+    }
+    
+    fileprivate func configureTitle() {
         
         if let artist = currentArtist {
             self.title = "\(artist.name ?? "Artist name is unavailable") Tracks"
@@ -28,9 +34,11 @@ class TrackListTableViewController: UITableViewController {
         else {
             self.title = "Track"
         }
+    }
+    
+    fileprivate func registerUINib() {
         
-        getTrackData()
-        setupTrackDetailView()
+        tableView.register(UINib(nibName: TrackListTableViewCell.cellName(), bundle: nil), forCellReuseIdentifier: TrackListTableViewCell.cellIdentifier())
     }
     
     @IBAction func settingsButtonTapped(_ sender: Any) {
@@ -55,6 +63,8 @@ extension TrackListTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TrackListTableViewCell.cellIdentifier(), for: indexPath) as? TrackListTableViewCell else {
+            
+            LOG.warn("Error dequeueing Track List Table View Cell")
             return UITableViewCell()
         }
         
@@ -113,21 +123,9 @@ private extension TrackListTableViewController {
         
         self.present(alertController, animated: true, completion: nil)
     }
-    
 }
-
+//MARK: - Track Data
 private extension TrackListTableViewController {
-    
-    func displayTrackDetailView() {
-        
-        guard let currentTrack = currentTrack else { return }
-        guard let trackDetailView = trackDetailView else { return }
-        
-        trackDetailView.setupViewWithTrack(currentTrack)
-        
-        self.navigationController?.view.addSubview(trackDetailView)
-        self.navigationController?.view.bringSubview(toFront: trackDetailView)
-    }
     
     func getTrackData() {
         
@@ -145,8 +143,32 @@ private extension TrackListTableViewController {
             }, failure: { (error) in
                 
                 self.showAlert(title: "Error Displaying Track(s)", message: "There is an error displaying your track(s), please try again.")
+                LOG.error("Error Displaying Tracks, error description: \(error.localizedDescription)")
             })
         }
+    }
+}
+
+//MARK: - Displaying Track Detail View
+private extension TrackListTableViewController {
+    
+    func displayTrackDetailView() {
+        
+        guard let currentTrack = currentTrack else {
+            
+            LOG.warn("Error with current Track")
+            return
+        }
+        guard let trackDetailView = trackDetailView else {
+            
+            LOG.warn("Error with Track Detail View")
+            return
+        }
+        
+        trackDetailView.setupViewWithTrack(currentTrack)
+        
+        self.navigationController?.view.addSubview(trackDetailView)
+        self.navigationController?.view.bringSubview(toFront: trackDetailView)
     }
     
     func setupTrackDetailView() {
